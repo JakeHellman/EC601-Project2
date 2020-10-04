@@ -34,6 +34,8 @@ def getTweets():
 	csvFile = open('mytweets.csv', 'w')
 	csvWriter = csv.writer(csvFile)
 
+	numTweets = 100
+
 	hashtag = ''
 
 	while len(hashtag) < 2 or hashtag[0] != '#':
@@ -42,7 +44,7 @@ def getTweets():
 			if hashtag[0] != '#':
 				print("Note: The first character must be a #")
 
-	for tweet in tweepy.Cursor(api.search,q=hashtag,count=100, lang="en", since="2020-09-28").items(10):
+	for tweet in tweepy.Cursor(api.search,q=hashtag,count=100, lang="en", since="2020-09-28").items(numTweets):
 		if verbose:
 			print(tweet.created_at, tweet.text)
 		csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
