@@ -15,3 +15,10 @@ python phase1a.py
 python phase1b.py
 python phase2.py
 python phase2.py -v
+
+User:
+- Marketing manager
+
+User Story:
+- As a marketing team lead for X, I would like to better understand what customers think about our product(s).
+
