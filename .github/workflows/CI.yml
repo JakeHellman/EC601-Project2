@@ -32,6 +32,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run automated tests
         run: |
+          pip install tweepy
+          pip install google-cloud-datastore
           pip install pytest
           python -m pytest
         
