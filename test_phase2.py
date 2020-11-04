@@ -34,3 +34,4 @@ def test_getAverageSentiment_TC2():
 
 	assert p2.getAverageSentiment(sentiments)[0] == approx(0.2)
 	assert p2.getAverageSentiment(sentiments)[1] == approx(-1)
+	
