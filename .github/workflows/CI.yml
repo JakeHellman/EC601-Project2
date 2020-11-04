@@ -31,5 +31,9 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Run automated tests
-        run: python -m pytest
+        run: |
+          pip install pytest
+          python -m pytest
+        
+    
 
