@@ -33,7 +33,7 @@ jobs:
       - name: Run automated tests
         run: |
           pip install tweepy
-          pip install google-cloud-datastore
+          pip install google-cloud-language
           pip install pytest
           python -m pytest
         
