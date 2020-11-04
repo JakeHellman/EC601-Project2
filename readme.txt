@@ -9,6 +9,9 @@ This is a python program which interacts with the Google Natural Language Proces
 phase2.py
 This is a python program which combines usage of the Twitter API and the Google NLP API. It prompts the user for a search string (the hashtag that the user is interested in evaluating). The hashtag is then used with the Twitter API to grab a specified number (default = 100) of tweets that match the specified hashtag. These tweets are saved to a CSV file for later analysis. Then, the Twitter data stored in the CSV file is extracted to build a list of tweets which is passed to the Google NLP API. For each tweet, the sentiment (score and magnitude) is fetched and stored. The average of the sentiment score and magnitude is then printed for the user to consume. Note that a verbose option (-v) is provided if the user would like to have additional information printed as the program is interacting with the APIs.
 
+test_phase2.py
+This is the automated test script witten using PyTest. Run this with: python -m pytest
+
 Usage:
 
 python phase1a.py

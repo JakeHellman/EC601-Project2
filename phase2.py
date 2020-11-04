@@ -90,10 +90,12 @@ def analyzeSentiment():
 	print('Average Sentiment Score: {}'.format(averageScore))
 	print('Average Sentiment Magnitude: {}'.format(averageMagnitude))
 
-verbose = False			#flag used for debug output
-if len(sys.argv) > 1:
-	if sys.argv[1] == "-v":
-		verbose = True
 
-getTweets()
-analyzeSentiment()
+if __name__ == "__main__":
+	verbose = False			#flag used for debug output
+	if len(sys.argv) > 1:
+		if sys.argv[1] == "-v":
+			verbose = True
+
+	getTweets()
+	analyzeSentiment()
