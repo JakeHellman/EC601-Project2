@@ -2,9 +2,6 @@
 
 import sys
 
-# Import file with twitter keys
-import twitter_keys
-
 # Import libraries for twitter analysis
 import tweepy
 import csv
@@ -13,11 +10,6 @@ import csv
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-
-# Setup for Twitter API
-auth = tweepy.OAuthHandler(twitter_keys.API_key, twitter_keys.API_secret_key)
-auth.set_access_token(twitter_keys.Access_token, twitter_keys.Access_token_secret)
-api = tweepy.API(auth)
 
 def getAverageSentiment(sentiments):
 	'''Takes in a list of sentiments and returns the average score and mangnitude'''
@@ -92,7 +84,16 @@ def analyzeSentiment():
 
 
 if __name__ == "__main__":
+	# Import file with twitter keys
+	import twitter_keys
+	
+	# Setup for Twitter API
+	auth = tweepy.OAuthHandler(twitter_keys.API_key, twitter_keys.API_secret_key)
+	auth.set_access_token(twitter_keys.Access_token, twitter_keys.Access_token_secret)
+	api = tweepy.API(auth)
+
 	verbose = False			#flag used for debug output
+
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "-v":
 			verbose = True
