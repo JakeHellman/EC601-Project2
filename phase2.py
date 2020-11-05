@@ -7,9 +7,7 @@ import tweepy
 import csv
 
 # Imports the Google Cloud client library
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+from google.cloud import language_v1
 
 def getAverageSentiment(sentiments):
 	'''Takes in a list of sentiments and returns the average score and mangnitude'''
@@ -46,7 +44,7 @@ def getTweets():
 def analyzeSentiment():
 	'''Analyzes the sentiment for different tweets stored in a CSV file'''
 	# Instantiates a client
-	client = language.LanguageServiceClient()
+	client = language_v1.LanguageServiceClient()
 
 	# Creates lists for individual texts to anaylze and semtiment resuls
 	texts = []
@@ -63,12 +61,12 @@ def analyzeSentiment():
 
 	# Create a document for each of the texts and analyze it for sentiment
 	for text in texts:
-		document = types.Document(
-		    content=text,
-		    type=enums.Document.Type.PLAIN_TEXT)
+		document = language_v1.Document(
+			content=text,
+			type_=language_v1.Document.Type.PLAIN_TEXT)
 
 		# Detects the sentiment of the text
-		sentiments.append(client.analyze_sentiment(document=document).document_sentiment)
+		sentiments.append(client.analyze_sentiment(request={'document' : document}).document_sentiment)
 
 	# Print out the sentiment for each of the texts
 	for i in range(len(texts)):
